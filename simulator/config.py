@@ -1,7 +1,7 @@
-endpoint-type iot:Data-ATS --region us-east-2
-{
-    "endpointAddress": "a3lhxzikpqmbfa-ats.iot.us-east-2.amazonaws.com"
-}
+#endpoint-type iot:Data-ATS --region us-east-2
+#{x
+#    "endpointAddress": "a3lhxzikpqmbfa-ats.iot.us-east-2.amazonaws.com"
+#}
 
  
 ENDPOINT  = "a3lhxzikpqmbfa-ats.iot.us-east-2.amazonaws.com"  # <-- replace this
