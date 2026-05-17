@@ -12,6 +12,13 @@ from config import (
     ENDPOINT, PORT, CERT_PATH, KEY_PATH,
     CA_PATH, CLIENT_ID, TOPIC, PUBLISH_INTERVAL_SEC
 )
+from influxdb_client import InfluxDBClient, Point, WritePrecision
+from influxdb_client.client.write_api import SYNCHRONOUS
+from config import INFLUX_URL, INFLUX_TOKEN, INFLUX_ORG, INFLUX_BUCKET
+
+# InfluxDB client
+influx = InfluxDBClient(url=INFLUX_URL, token=INFLUX_TOKEN, org=INFLUX_ORG)
+write_api = influx.write_api(write_options=SYNCHRONOUS)
 
 # ── Machine profiles ──────────────────────────────────────────────────────────
 # Each machine has its own cycle time, scrap rate, and failure tendency.
