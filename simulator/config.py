@@ -17,3 +17,8 @@ TOPIC     = "mes/machines"   # messages publish to mes/machines/CNC-01 etc.
 # Alert thresholds
 DOWNTIME_ALERT_MINUTES = 5   # alert if machine down longer than this
 PUBLISH_INTERVAL_SEC   = 5   # send a reading every 5 seconds
+
+INFLUX_URL    = "https://us-east-1-1.aws.cloud2.influxdata.com"  # your actual URL from InfluxDB dashboard
+INFLUX_TOKEN  = "eA5jYi-tI9Iwq0aHVT0YS0cuva-fKqrB9TRHjJAjt_cI4zoKfJnqwRnOMj7NohZ6au3CFTCZcE4nHKq0jXiidw=="
+INFLUX_ORG    = "mes-monitor"
+INFLUX_BUCKET = "machine_data"
