@@ -273,6 +273,7 @@ def main():
                 payload = generate_payload(machine_id)
                 topic   = f"{TOPIC}/{machine_id}"
                 client.publish(topic, json.dumps(payload), qos=1)
+                write_to_influx(payload) 
                 status_icon = "🟢" if payload["status"] == "RUNNING" else "🔴"
                 print(f"  {status_icon} {machine_id} | {payload['status']:<20} | "
                       f"cycle={payload['cycle_time_sec']:5.1f}s | "
