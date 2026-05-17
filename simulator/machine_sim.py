@@ -225,6 +225,22 @@ def build_client():
     )
     return client
 
+def write_to_influx(payload):
+    point = (
+        Point("machine_telemetry")
+        .tag("machine_id",   payload["machine_id"])
+        .tag("machine_type", payload["machine_type"])
+        .tag("shift",        payload["shift"])
+        .tag("status",       payload["status"])
+        .field("cycle_time", payload["cycle_time_sec"])
+        .field("temperature",payload["temperature_c"])
+        .field("oee_pct",    payload["oee_pct"])
+        .field("parts_produced", float(payload["parts_produced"]))
+        .field("scrap_count",    float(payload["scrap_count"]))
+        .field("parts_today",    float(payload["parts_today"]))
+    )
+    write_api.write(bucket=INFLUX_BUCKET, record=point)
+
 # ── Main loop ─────────────────────────────────────────────────────────────────
 
 def main():
